@@ -30,3 +30,12 @@
 *.exe
 *.out
 *.app
+/.vs/HunterCryEngine
+/Debug
+/HunterCryEngine/Debug
+/HunterCryEngine/Release
+/HunterCryEngine/x64
+/HunterDemoCry/Debug
+/HunterDemoCry/x64/Debug
+/Release
+/x64
