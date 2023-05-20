@@ -22,9 +22,4 @@
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="HunterCryEngine\HunterCry.h">
-      <Filter>头文件\HunterCryEngine</Filter>
-    </ClInclude>
-  </ItemGroup>
 </Project>
