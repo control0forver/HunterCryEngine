@@ -50,7 +50,7 @@ IHunterCry::~IHunterCry()
 int IHunterCry::InitializeEngine()
 {
     p_crywndWindow = new CryWindow(c_strWindowClass, c_strWindowTitle, iWidth, iHeight);
-    if (!p_crywndWindow || !p_crywndWindow->Create())
+    if (!p_crywndWindow || !p_crywndWindow->Create(true,NULL,GetModuleHandle(0)))
         return false;
 
     p_crydevDevice = new CryDevice();

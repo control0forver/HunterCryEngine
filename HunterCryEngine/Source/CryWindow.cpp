@@ -21,6 +21,8 @@ const HWND CryWindow::Create(bool bUseDefaultWndProc, int iWndProcFuncAddr, HINS
     else
         wndprocWndProcFuncPtr = (WNDPROC)(iWndProcFuncAddr);
 
+    hinstWindowHinstanceBind = hinstHinstance;
+
     p_wndclsWindowRegClass.cbClsExtra = NULL;
     p_wndclsWindowRegClass.cbWndExtra = NULL;
     p_wndclsWindowRegClass.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH);

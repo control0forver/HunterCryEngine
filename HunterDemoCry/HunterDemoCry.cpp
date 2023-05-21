@@ -27,32 +27,6 @@ int main(int argc, char** argv)
     exit(0);
 }
 
-LRESULT CALLBACK DefaultWndProc(HWND hwndWindow, UINT iMessage, WPARAM wparamWParam, LPARAM lparamLParam) {
-    switch (iMessage)
-    {
-    case WM_PAINT:
-        //ValidateRect(hwndWindow, NULL);
-        break;
-    case WM_DESTROY:
-        PostQuitMessage(wparamWParam);
-        break;
-    }
-    return DefWindowProc(hwndWindow, iMessage, wparamWParam, lparamLParam);
-}
-
-LRESULT CALLBACK DefaultWndProc1(HWND hwndWindow, UINT iMessage, WPARAM wparamWParam, LPARAM lparamLParam) {
-    switch (iMessage)
-    {
-    case WM_PAINT:
-        //ValidateRect(hwndWindow, NULL);
-        break;
-    case WM_DESTROY:
-        PostQuitMessage(wparamWParam);
-        break;
-    }
-    return DefWindowProc(hwndWindow, iMessage, wparamWParam, lparamLParam);
-}
-
 int RunGame()
 {
     HunterCry engine = new IHunterCry("DemoCryWindow", "HunterDemoCry");
@@ -74,7 +48,7 @@ int RunGame()
 
         while (1)
         {
-            if (PeekMessage(&msg, hwndWindow, 0, 0, PM_REMOVE))
+            if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
             {
                 TranslateMessage(&msg);
                 DispatchMessage(&msg);
@@ -119,7 +93,7 @@ int RunGame1()
 
         while (true)
         {
-            if (PeekMessage(&msg, hwndWindow, 0, 0, PM_REMOVE))
+            if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
             {
                 TranslateMessage(&msg);
                 DispatchMessage(&msg);

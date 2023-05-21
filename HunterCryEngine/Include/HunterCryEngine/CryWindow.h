@@ -4,6 +4,7 @@
 #endif
 
 class CryWindow {
+#ifdef _WIN32
 public:
     static LRESULT CALLBACK DefaultWndProc(HWND hwndWindow, UINT iMessage, WPARAM wparamWParam, LPARAM lparamLParam) {
         switch (iMessage)
@@ -17,6 +18,7 @@ public:
         }
         return DefWindowProc(hwndWindow, iMessage, wparamWParam, lparamLParam);
     }
+#endif
 
 public:
 #ifdef _WIN32
@@ -25,6 +27,7 @@ public:
     int iWidth = 0, iHeight = 0;
     int iStartX = 0, iStartY = 0;
 
+    HINSTANCE hinstWindowHinstanceBind = NULL;
     HWND hwndWindowHandle = NULL;
     WNDPROC wndprocWndProcFuncPtr = NULL;
 
