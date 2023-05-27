@@ -6,7 +6,7 @@
 #include <thread>
 #include <functional>
 
-#pragma comment(lib, "HunterCryEngine.lib")
+//#pragma comment(lib, "HunterCryEngine.lib")
 #include "HunterCryEngine/HunterCry.h"
 
 int RunGame();
@@ -113,5 +113,5 @@ int RunGame1()
     engine->ReleaseEngine();
     printf("Engines: %d\n", IHunterCry::GetEnginesCount());
 
-    return 0;
+    return 0; 
 }

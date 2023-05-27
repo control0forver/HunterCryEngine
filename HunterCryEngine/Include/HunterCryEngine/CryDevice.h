@@ -5,6 +5,8 @@
 #pragma comment(lib, "d3d9.lib")
 #endif
 
+#include "LibDef.h"
+
 class CryDevice {
 private:
     bool bReleased = false;
@@ -63,34 +65,34 @@ public:
 
 #ifdef _WIN32
 private:
-    void GetCaptures();
-    void CheckVertexProcessing();
+    HUNTERCRY_API void GetCaptures();
+    HUNTERCRY_API void CheckVertexProcessing();
 
 public:
     virtual void ErrCreatingD3D9Device(HRESULT hrResult) {}
 
 public:
-    void MakeD3DPstParams();
-    inline void MakeD3DPstParams(D3DPRESENT_PARAMETERS d3dpstparamD3DPresentParameters);
-    void Reset(bool bAutoMakePP = true);
-    void Reset(D3DPRESENT_PARAMETERS d3dpstparamD3DPresentParameters);
+    HUNTERCRY_API void MakeD3DPstParams();
+    HUNTERCRY_API inline void MakeD3DPstParams(D3DPRESENT_PARAMETERS d3dpstparamD3DPresentParameters);
+    HUNTERCRY_API void Reset(bool bAutoMakePP = true);
+    HUNTERCRY_API void Reset(D3DPRESENT_PARAMETERS d3dpstparamD3DPresentParameters);
 #endif
 
 public:
 #ifdef _WIN32
-    const IDirect3D9* CreateD3D9();
-    const IDirect3DDevice9* CreateD3D9Device();
+    HUNTERCRY_API const IDirect3D9* CreateD3D9();
+    HUNTERCRY_API const IDirect3DDevice9* CreateD3D9Device();
 
-    int Create(int iWidth, int iHeight, bool bFullscreen, HWND hwndWindow);
-    void Release();
+    HUNTERCRY_API int Create(int iWidth, int iHeight, bool bFullscreen, HWND hwndWindow);
+    HUNTERCRY_API void Release();
 
-    inline IDirect3DDevice9** GetD3D9DevicePtrPtr() { return &p_id3d9devD3D9Device; }
-    inline D3DPRESENT_PARAMETERS GetCurrentD3DPstParams() { return *p_d3dpstparamD3DPresentParameters; }
+    HUNTERCRY_API inline IDirect3DDevice9** GetD3D9DevicePtrPtr() { return &p_id3d9devD3D9Device; }
+    HUNTERCRY_API inline D3DPRESENT_PARAMETERS GetCurrentD3DPstParams() { return *p_d3dpstparamD3DPresentParameters; }
 #endif
 
 public:
 #ifdef _WIN32
-     HRESULT Clear(const DWORD& Count, const D3DRECT* pRects, const DWORD& Flags, const D3DCOLOR& Color, const float& Z, const DWORD& Stencil);
-     HRESULT Present(const RECT* pSourceRect, CONST RECT* pDestRect, const HWND& hDestWindowOverride, CONST RGNDATA* pDirtyRegion);
+    HUNTERCRY_API HRESULT Clear(const DWORD& Count, const D3DRECT* pRects, const DWORD& Flags, const D3DCOLOR& Color, const float& Z, const DWORD& Stencil);
+    HUNTERCRY_API HRESULT Present(const RECT* pSourceRect, CONST RECT* pDestRect, const HWND& hDestWindowOverride, CONST RGNDATA* pDirtyRegion);
 #endif
 };

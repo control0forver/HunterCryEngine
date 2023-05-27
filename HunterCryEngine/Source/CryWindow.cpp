@@ -21,18 +21,6 @@ void CryWindow::CreateClass()
     p_wndclsWindowRegClass->style = CS_HREDRAW | CS_VREDRAW;
 }
 
-CryWindow::CryWindow(const char* c_strWindowClass, const char* c_strWindowTitle, int iWidth, int iHeight,int iStartX, int iStartY)
-{
-    this->c_strWindowClass = c_strWindowClass;
-    this->c_strWindowTitle = c_strWindowTitle;
-
-    this->iWidth = iWidth;
-    this->iHeight = iHeight;
-
-    this->iStartX = iStartX;
-    this->iStartY = iStartY;
-}
-
 const HWND CryWindow::Create(bool bUseDefaultWndProc, int iWndProcFuncAddr, HINSTANCE hinstHinstance)
 {
     if (bUseDefaultWndProc)

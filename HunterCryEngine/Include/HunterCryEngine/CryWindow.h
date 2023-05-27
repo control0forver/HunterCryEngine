@@ -3,6 +3,8 @@
 #include <Windows.h>
 #endif
 
+#include "LibDef.h"
+
 class CryWindow {
 #ifdef _WIN32
 public:
@@ -49,15 +51,26 @@ public:
 #endif
 
 #ifdef _WIN32
-    void CreateClass();
+    HUNTERCRY_API void CreateClass();
 #endif
 
 public:
 #ifdef _WIN32
-    CryWindow(const char* c_strWindowClass, const char* c_strWindowTitle, int iWidth, int iHeight, int iStartX = CW_USEDEFAULT, int iStartY = CW_USEDEFAULT);
+    CryWindow(const char* c_strWindowClass, const char* c_strWindowTitle, int iWidth, int iHeight, int iStartX = CW_USEDEFAULT, int iStartY = CW_USEDEFAULT) {
+        this->c_strWindowClass = c_strWindowClass;
+        this->c_strWindowTitle = c_strWindowTitle;
 
-    const HWND Create(bool bUseDefaultWndProc = true, int iWndProcFuncAddr = NULL, HINSTANCE hinstHinstance = NULL);
+        this->iWidth = iWidth;
+        this->iHeight = iHeight;
 
-    void Release();
+        this->iStartX = iStartX;
+        this->iStartY = iStartY;
+    }
+
+    ~CryWindow() {}
+
+    HUNTERCRY_API const HWND Create(bool bUseDefaultWndProc = true, int iWndProcFuncAddr = NULL, HINSTANCE hinstHinstance = NULL);
+
+    HUNTERCRY_API void Release();
 #endif
 };

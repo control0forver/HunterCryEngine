@@ -13,6 +13,12 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
+    <Filter Include="Include\ThirdPartyRender">
+      <UniqueIdentifier>{777923d3-420b-452c-b0ae-7de2ccca7b85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\ThirdPartyRender\SDL2">
+      <UniqueIdentifier>{1e0777cb-f744-409c-9421-f4a8cf31471d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\HunterCry.cpp">
@@ -35,5 +41,13 @@
     <ClInclude Include="Include\HunterCryEngine\CryWindow.h">
       <Filter>Include</Filter>
     </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\LibDef.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\Notes.txt">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </Text>
   </ItemGroup>
 </Project>

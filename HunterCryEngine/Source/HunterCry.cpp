@@ -6,7 +6,7 @@
 #pragma region Public
 #pragma endregion
 #pragma region Private
-unsigned int IHunterCry::u_iEnginesCount = 0;
+static unsigned int u_iEnginesCount=0;
 #pragma endregion
 #pragma region Public Gets
 unsigned int IHunterCry::GetEnginesCount()
@@ -21,34 +21,19 @@ void IHunterCry::GetEnginesCount(unsigned int* const p_u_iEnginesCount)
 
 #pragma endregion
 
-
 #pragma region Class Datas
+#pragma region Private
+void IHunterCry::ECADD()
+{
+    u_iEnginesCount++;
+}
+void IHunterCry::ECSUB()
+{
+    u_iEnginesCount--;
+}
+#pragma endregion
 
 #pragma region Public
-IHunterCry::IHunterCry(const char* c_strWindowClass, const char* c_strWindowTitle, int iWidth, int iHeight, bool bFullscreen)
-{
-    this->c_strWindowClass = c_strWindowClass;
-    this->c_strWindowTitle = c_strWindowTitle;
-
-    this->iWidth = iWidth;
-    this->iHeight = iHeight;
-
-    this->bFullscreen = bFullscreen;
-
-    // Success
-    ++u_iEnginesCount;
-}
-
-IHunterCry::~IHunterCry()
-{
-    p_crydevDevice->Release();
-    //p_crywndWindow->Release();
-
-    // Success
-    --u_iEnginesCount;
-}
-
-
 
 int IHunterCry::InitializeEngine()
 {
@@ -69,6 +54,15 @@ int IHunterCry::InitializeEngine()
 void IHunterCry::ReleaseEngine()
 {
     delete this;
+}
+
+int IHunterCry::InitializeSDL2()
+{
+    return 0;
+}
+
+void IHunterCry::ReleaseSDL2()
+{
 }
 
 void IHunterCry::SwitchFullscreen()
@@ -154,9 +148,6 @@ bool IHunterCry::GetFullscreen()
 {
     return bFullscreen;
 }
-
-#pragma endregion
-#pragma region Private
 
 #pragma endregion
 
