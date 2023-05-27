@@ -17,7 +17,6 @@ const int iFpsLimit = 15;
 int main(int argc, char** argv)
 {
     std::thread t1(RunGame1);
-    t1.detach();
 
     int iGame1Result = RunGame();
 

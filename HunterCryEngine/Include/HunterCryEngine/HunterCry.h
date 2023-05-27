@@ -51,6 +51,8 @@ public:
     int InitializeEngine();
     void ReleaseEngine();
 
+    void ResizeContext(int iWidth, int iHeight);
+
 #pragma endregion
 #pragma region Private
 private:

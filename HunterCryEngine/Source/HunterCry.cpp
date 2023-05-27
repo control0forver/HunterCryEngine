@@ -65,6 +65,11 @@ void IHunterCry::ReleaseEngine()
     delete this;
 }
 
+void IHunterCry::ResizeContext(int iWidth,int iHeight)
+{
+    
+}
+
 const CryWindow* IHunterCry::GetWindow()
 {
     return p_crywndWindow;
