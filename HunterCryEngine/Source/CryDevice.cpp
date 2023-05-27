@@ -41,17 +41,17 @@ inline void CryDevice::MakeD3DPstParams(D3DPRESENT_PARAMETERS d3dpstparamD3DPres
     *p_d3dpstparamD3DPresentParameters = d3dpstparamD3DPresentParameters;
 }
 
-void CryDevice::Reset(bool bAutoMakePP)
+HRESULT CryDevice::Reset(bool bAutoMakePP)
 {
     if (bAutoMakePP)
         MakeD3DPstParams();
 
-    p_id3d9devD3D9Device->Reset(p_d3dpstparamD3DPresentParameters);
+    return p_id3d9devD3D9Device->Reset(p_d3dpstparamD3DPresentParameters);
 }
 
-void CryDevice::Reset(D3DPRESENT_PARAMETERS p_d3dpstparamD3DPresentParameters)
+HRESULT CryDevice::Reset(D3DPRESENT_PARAMETERS p_d3dpstparamD3DPresentParameters)
 {
-    p_id3d9devD3D9Device->Reset(&p_d3dpstparamD3DPresentParameters);
+    return p_id3d9devD3D9Device->Reset(&p_d3dpstparamD3DPresentParameters);
 }
 
 
@@ -94,7 +94,7 @@ int CryDevice::Create(int iWidth, int iHeight, bool bFullscreen, HWND hwndWindow
     if (!CreateD3D9())
         return false;
 
-    this->iD3DBackbuffersCount = 1;
+    this->iD3DBackbuffersCount = 2;
     this->iDeviceWidth = iWidth;
     this->iDeviceHeight = iHeight;
     this->hwndD3DWindow = hwndWindow;
@@ -104,6 +104,7 @@ int CryDevice::Create(int iWidth, int iHeight, bool bFullscreen, HWND hwndWindow
     this->d3dfmtD3DBackbufferFormat = D3DFMT_A8R8G8B8;
     this->d3dfmtD3DAutoDepthStencilFormat = D3DFMT_D24S8;
     this->d3dswpefctD3DSwapEffect = D3DSWAPEFFECT_DISCARD;
+    this->iD3DFullScreen_RefreshRateInHz = 0;
     MakeD3DPstParams();
 
     if (!CreateD3D9Device())
@@ -117,14 +118,14 @@ void CryDevice::Release()
     delete this;
 }
 
-HRESULT CryDevice::Clear(const DWORD & Count, const D3DRECT * pRects,const DWORD & Flags, const D3DCOLOR & Color, const float& Z, const DWORD & Stencil)
+HRESULT CryDevice::Clear(const DWORD& Count, const D3DRECT* pRects, const DWORD& Flags, const D3DCOLOR& Color, const float& Z, const DWORD& Stencil)
 {
     if (!bReleased)
         return p_id3d9devD3D9Device->Clear(Count, pRects, Flags, Color, Z, Stencil);
     return 0;
 }
 
-HRESULT CryDevice::Present(const RECT * pSourceRect, CONST RECT * pDestRect, const HWND & hDestWindowOverride, CONST RGNDATA * pDirtyRegion)
+HRESULT CryDevice::Present(const RECT* pSourceRect, CONST RECT* pDestRect, const HWND& hDestWindowOverride, CONST RGNDATA* pDirtyRegion)
 {
     if (!bReleased)
         return p_id3d9devD3D9Device->Present(pSourceRect, pDestRect, hDestWindowOverride, pDirtyRegion);

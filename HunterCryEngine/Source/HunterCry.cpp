@@ -6,7 +6,7 @@
 #pragma region Public
 #pragma endregion
 #pragma region Private
-static unsigned int u_iEnginesCount=0;
+static unsigned int u_iEnginesCount = 0;
 #pragma endregion
 #pragma region Public Gets
 unsigned int IHunterCry::GetEnginesCount()
@@ -35,16 +35,23 @@ void IHunterCry::ECSUB()
 
 #pragma region Public
 
+void IHunterCry::PreLoadEngine()
+{
+    if (!p_crywndWindow)
+        p_crywndWindow = new CryWindow(c_strWindowClass, c_strWindowTitle, iWidth, iHeight);
+
+    if (!p_crydevDevice)
+        p_crydevDevice = new CryDevice();
+}
+
 int IHunterCry::InitializeEngine()
 {
     if (bIsInitialized)
         return false;
 
-    p_crywndWindow = new CryWindow(c_strWindowClass, c_strWindowTitle, iWidth, iHeight);
     if (!p_crywndWindow || !p_crywndWindow->Create(true, NULL, GetModuleHandle(0)))
         return false;
 
-    p_crydevDevice = new CryDevice();
     if (!p_crydevDevice || !p_crydevDevice->Create(iWidth, iHeight, bFullscreen, p_crywndWindow->hwndWindowHandle))
         return false;
 
@@ -58,15 +65,31 @@ void IHunterCry::ReleaseEngine()
 
 int IHunterCry::InitializeSDL2()
 {
-    return 0;
+    return  SDL_Init(SDL_INIT_EVERYTHING);
 }
 
 void IHunterCry::ReleaseSDL2()
 {
+    SDL_Quit();
+}
+
+void IHunterCry::SwitchVSync(bool bUseVSync)
+{
+    if (bUseVSync) {
+        p_crydevDevice->iD3DPresentationInterval = D3DPRESENT_INTERVAL_DEFAULT;
+        p_crydevDevice->d3dswpefctD3DSwapEffect = D3DSWAPEFFECT_FLIP;
+    }
+    else {
+        p_crydevDevice->iD3DPresentationInterval = D3DPRESENT_INTERVAL_IMMEDIATE;
+        p_crydevDevice->d3dswpefctD3DSwapEffect = D3DSWAPEFFECT_DISCARD;
+    }
+
+    p_crydevDevice->Reset();
 }
 
 void IHunterCry::SwitchFullscreen()
 {
+    bFullscreen = !bFullscreen;
     SwitchFullscreen(bFullscreen);
 }
 
@@ -77,12 +100,14 @@ void IHunterCry::SwitchFullscreen(bool bFullscreen)
     if (bFullscreen)
     {
         p_crydevDevice->iD3DWindowed = false;
+        p_crydevDevice->iD3DFullScreen_RefreshRateInHz = iRefreshRateHz;
 
         p_crydevDevice->Reset();
     }
     else
     {
         p_crydevDevice->iD3DWindowed = true;
+        p_crydevDevice->iD3DFullScreen_RefreshRateInHz = 0;
 
         p_crydevDevice->Reset();
     }
@@ -107,6 +132,11 @@ void IHunterCry::SetWidthHeight(int iWidth, int iHeight)
 {
     this->iWidth = iWidth;
     this->iHeight = iHeight;
+}
+
+void IHunterCry::SetRefreshRateHz(int iRefreshRateHz)
+{
+    this->iRefreshRateHz = iRefreshRateHz;
 }
 
 void IHunterCry::SetFullscreen(bool bFullscreen)
@@ -139,9 +169,14 @@ int IHunterCry::GetWidth()
     return iWidth;
 }
 
-int IHunterCry::GetiHeight()
+int IHunterCry::GetHeight()
 {
     return iHeight;
+}
+
+int IHunterCry::GetRefreshRateHz()
+{
+    return iRefreshRateHz;
 }
 
 bool IHunterCry::GetFullscreen()

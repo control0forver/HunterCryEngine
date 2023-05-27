@@ -2,7 +2,13 @@
 #ifdef _WIN32
 #include <Windows.h>
 #include <d3d9.h>
+#include <d3dx9.h>
 #pragma comment(lib, "d3d9.lib")
+#ifdef _DEBUG
+#pragma comment(lib, "d3dx9d.lib")
+#else
+#pragma comment(lib, "d3dx9.lib")
+#endif
 #endif
 
 #include "LibDef.h"
@@ -74,8 +80,8 @@ public:
 public:
     HUNTERCRY_API void MakeD3DPstParams();
     HUNTERCRY_API inline void MakeD3DPstParams(D3DPRESENT_PARAMETERS d3dpstparamD3DPresentParameters);
-    HUNTERCRY_API void Reset(bool bAutoMakePP = true);
-    HUNTERCRY_API void Reset(D3DPRESENT_PARAMETERS d3dpstparamD3DPresentParameters);
+    HUNTERCRY_API HRESULT Reset(bool bAutoMakePP = true);
+    HUNTERCRY_API HRESULT Reset(D3DPRESENT_PARAMETERS d3dpstparamD3DPresentParameters);
 #endif
 
 public:

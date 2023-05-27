@@ -19,6 +19,15 @@
     <Filter Include="Include\ThirdPartyRender\SDL2">
       <UniqueIdentifier>{1e0777cb-f744-409c-9421-f4a8cf31471d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Library">
+      <UniqueIdentifier>{6e93fa85-d550-4d09-8f37-25c48973bb58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\x86">
+      <UniqueIdentifier>{070f533c-1164-4b1a-8c5a-738f1f78e009}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library\x64">
+      <UniqueIdentifier>{ab605b95-9533-49db-b0c0-e2972d4571d5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\HunterCry.cpp">
@@ -44,10 +53,311 @@
     <ClInclude Include="Include\HunterCryEngine\LibDef.h">
       <Filter>Include</Filter>
     </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_vulkan.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_assert.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_atomic.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_audio.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_bits.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_blendmode.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_clipboard.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_config.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_config_android.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_config_emscripten.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_config_iphoneos.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_config_macosx.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_config_minimal.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_config_ngage.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_config_os2.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_config_pandora.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_config_windows.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_config_wingdk.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_config_winrt.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_config_xbox.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_copying.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_cpuinfo.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_egl.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_endian.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_error.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_events.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_filesystem.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_gamecontroller.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_gesture.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_guid.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_haptic.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_hidapi.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_hints.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_joystick.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_keyboard.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_keycode.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_loadso.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_locale.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_log.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_main.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_messagebox.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_metal.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_misc.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_mouse.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_mutex.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_name.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_opengl.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_opengl_glext.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_opengles.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_opengles2.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_opengles2_gl2.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_opengles2_gl2ext.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_opengles2_gl2platform.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_opengles2_khrplatform.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_pixels.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_platform.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_power.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_quit.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_rect.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_render.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_revision.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_rwops.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_scancode.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_sensor.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_shape.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_stdinc.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_surface.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_system.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_syswm.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_test.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_test_assert.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_test_common.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_test_compare.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_test_crc32.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_test_font.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_test_fuzzer.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_test_harness.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_test_images.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_test_log.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_test_md5.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_test_memory.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_test_random.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_thread.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_timer.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_touch.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_types.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_version.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\SDL_video.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\close_code.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\begin_code.h">
+      <Filter>Include\ThirdPartyRender\SDL2</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Include\HunterCryEngine\ThirdPartyRender\SDL2\Notes.txt">
       <Filter>Include\ThirdPartyRender\SDL2</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="Library\x64\SDL2.lib">
+      <Filter>Library\x64</Filter>
+    </Library>
+    <Library Include="Library\x64\SDL2main.lib">
+      <Filter>Library\x64</Filter>
+    </Library>
+    <Library Include="Library\x64\SDL2test.lib">
+      <Filter>Library\x64</Filter>
+    </Library>
+    <Library Include="Library\x86\SDL2.lib">
+      <Filter>Library\x86</Filter>
+    </Library>
+    <Library Include="Library\x86\SDL2main.lib">
+      <Filter>Library\x86</Filter>
+    </Library>
+    <Library Include="Library\x86\SDL2test.lib">
+      <Filter>Library\x86</Filter>
+    </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Library\x64\SDL2.dll">
+      <Filter>Library\x64</Filter>
+    </None>
+    <None Include="Library\x86\SDL2.dll">
+      <Filter>Library\x86</Filter>
+    </None>
   </ItemGroup>
 </Project>

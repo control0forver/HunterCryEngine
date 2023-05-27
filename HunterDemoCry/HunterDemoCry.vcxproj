@@ -71,20 +71,20 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LibraryPath>$(SolutionDir)HunterCryEngine\x64\Release;$(LibraryPath)</LibraryPath>
-    <IncludePath>$(SolutionDir)HunterCryEngine\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(DXSDK_DIR)Lib\x64;$(SolutionDir)HunterCryEngine\x64\Release;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(DXSDK_DIR)\Include;$(ProjectDir)Include;$(SolutionDir)HunterCryEngine\Include\HunterCryEngine\ThirdPartyRender;$(SolutionDir)HunterCryEngine\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LibraryPath>$(SolutionDir)HunterCryEngine\Release;$(LibraryPath)</LibraryPath>
-    <IncludePath>$(SolutionDir)HunterCryEngine\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(DXSDK_DIR)Lib\x86;$(ProjectDir)Library\x86;$(SolutionDir)HunterCryEngine\Release;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(DXSDK_DIR)\Include;$(ProjectDir)Include;$(SolutionDir)HunterCryEngine\Include\HunterCryEngine\ThirdPartyRender;$(SolutionDir)HunterCryEngine\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LibraryPath>$(SolutionDir)HunterCryEngine\Debug;$(LibraryPath)</LibraryPath>
-    <IncludePath>$(SolutionDir)HunterCryEngine\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(DXSDK_DIR)Lib\x86;$(ProjectDir)Library\x86;$(SolutionDir)HunterCryEngine\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(DXSDK_DIR)\Include;$(ProjectDir)Include;$(SolutionDir)HunterCryEngine\Include\HunterCryEngine\ThirdPartyRender;$(SolutionDir)HunterCryEngine\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LibraryPath>$(SolutionDir)HunterCryEngine\x64\Debug;$(LibraryPath)</LibraryPath>
-    <IncludePath>$(SolutionDir)HunterCryEngine\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(DXSDK_DIR)Lib\x64;$(SolutionDir)HunterCryEngine\x64\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(DXSDK_DIR)\Include;$(ProjectDir)Include;$(SolutionDir)HunterCryEngine\Include\HunterCryEngine\ThirdPartyRender;$(SolutionDir)HunterCryEngine\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -171,6 +171,9 @@
     <ProjectReference Include="..\HunterCryEngine\HunterCryEngine.vcxproj">
       <Project>{69898c22-99fc-4f95-aa48-c75329f2a24c}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Include\Utils\fps.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

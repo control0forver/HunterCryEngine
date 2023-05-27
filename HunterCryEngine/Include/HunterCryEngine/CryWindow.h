@@ -8,18 +8,18 @@
 class CryWindow {
 #ifdef _WIN32
 public:
-    static LRESULT CALLBACK DefaultWndProc(HWND hwndWindow, UINT iMessage, WPARAM wparamWParam, LPARAM lparamLParam) {
+    WNDPROC DefaultWndProc = [](HWND hwndWindow, UINT iMessage, WPARAM wparamWParam, LPARAM lparamLParam) mutable throw()->LRESULT {
         switch (iMessage)
         {
         case WM_PAINT:
-            //ValidateRect(hwndWindow, NULL);
+            ValidateRect(hwndWindow, NULL);
             break;
         case WM_DESTROY:
             PostQuitMessage(wparamWParam);
             break;
         }
         return DefWindowProc(hwndWindow, iMessage, wparamWParam, lparamLParam);
-    }
+    };
 #endif
 
 public:

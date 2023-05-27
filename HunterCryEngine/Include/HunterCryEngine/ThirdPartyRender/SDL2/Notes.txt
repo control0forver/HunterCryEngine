@@ -7,10 +7,6 @@ Header Files Version
 
 Library Files Version
 ---------------------
-win32-x64 DL: 2.26.5
-win32-x86 DL: 2.26.5
-
-win32-x64 SL: 2.26.5
-win32-x86 SL: 2.26.5
-
+win32-x64 DLL: 2.26.5
+win32-x86 DLL: 2.26.5
 

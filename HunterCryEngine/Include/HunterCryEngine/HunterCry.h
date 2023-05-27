@@ -6,6 +6,9 @@
 #include "CryWindow.h"
 #include "CryDevice.h"
 
+#include "SDL2/SDL.h"
+#include "SDL2/SDL_syswm.h"
+
 typedef class IHunterCry {
 #pragma region Const Datas
 
@@ -46,6 +49,7 @@ private:
     const char* c_strWindowClass;
     const char* c_strWindowTitle;
     int iWidth = 0, iHeight = 0;
+    int iRefreshRateHz = 0;
     bool bFullscreen = 0;
 
 private:
@@ -56,7 +60,7 @@ private:
 #pragma region Public
 
 public:
-    IHunterCry(const char* c_strWindowClass = "class", const char* c_strWindowTitle = "title", int iWidth = 800, int iHeight = 600, bool bFullscreen = false)
+    IHunterCry(const char* c_strWindowClass = "class", const char* c_strWindowTitle = "title", int iWidth = 800, int iHeight = 600, int iRefreshRateHz = 60, bool bFullscreen = false)
     {
         this->c_strWindowClass = c_strWindowClass;
         this->c_strWindowTitle = c_strWindowTitle;
@@ -80,12 +84,14 @@ public:
 
 public:
 
+    HUNTERCRY_API void PreLoadEngine();
     HUNTERCRY_API int InitializeEngine();
     HUNTERCRY_API void ReleaseEngine();
 
     HUNTERCRY_API int InitializeSDL2();
     HUNTERCRY_API void ReleaseSDL2();
 
+    HUNTERCRY_API void SwitchVSync(bool bUseVSync);
     HUNTERCRY_API inline void SwitchFullscreen();
     HUNTERCRY_API void SwitchFullscreen(bool bFullscreen);
     HUNTERCRY_API void ResizeContext(int iWidth, int iHeight);
@@ -93,6 +99,7 @@ public:
     HUNTERCRY_API inline void SetWindowClass(const char* c_strWindowClass);
     HUNTERCRY_API inline void SetWindowTItle(const char* c_strWindowTitle);
     HUNTERCRY_API inline void SetWidthHeight(int iWidth, int iHeight);
+    HUNTERCRY_API inline void SetRefreshRateHz(int iRefreshRateHz);
     HUNTERCRY_API inline void SetFullscreen(bool bFullscreen);
 
 
@@ -105,7 +112,8 @@ public:
     HUNTERCRY_API inline const char* GetWindowClass();
     HUNTERCRY_API inline const char* GetWindowTItle();
     HUNTERCRY_API inline int GetWidth();
-    HUNTERCRY_API inline int GetiHeight();
+    HUNTERCRY_API inline int GetHeight();
+    HUNTERCRY_API inline int GetRefreshRateHz();
     HUNTERCRY_API inline bool GetFullscreen();
 #pragma endregion
 
