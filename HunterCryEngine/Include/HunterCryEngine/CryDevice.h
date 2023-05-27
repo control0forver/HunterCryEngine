@@ -6,25 +6,43 @@
 #endif
 
 class CryDevice {
+private:
+    bool bReleased = false;
+
 public:
 #ifdef _WIN32
     CryDevice(D3DDEVTYPE d3ddevtDeviceType = D3DDEVTYPE_HAL) {
         this->d3ddevtDeviceType = d3ddevtDeviceType;
     }
     ~CryDevice() {
+        bReleased = true;
+
         p_id3d9D3D9->Release();
         p_id3d9devD3D9Device->Release();
+
+        p_id3d9D3D9 = nullptr;
+        p_id3d9devD3D9Device = nullptr;
+        if (p_d3d9capsCaps)
+            delete p_d3d9capsCaps;
+        if (p_d3dpstparamD3DPresentParameters)
+            delete p_d3dpstparamD3DPresentParameters;
     }
 #endif
 
-public:
-    // !Do not try to change these items!
+private:
+#ifdef _WIN32
     int iDeviceWidth = 0;
     int iDeviceHeight = 0;
 
+    D3DCAPS9* p_d3d9capsCaps = nullptr;
+    IDirect3DDevice9* p_id3d9devD3D9Device = nullptr;
+    D3DPRESENT_PARAMETERS* p_d3dpstparamD3DPresentParameters = nullptr;
+
+#endif
+
+public:
 #ifdef _WIN32
     IDirect3D9* p_id3d9D3D9 = nullptr;
-    D3DCAPS9* p_d3d9capsCaps = nullptr;
     D3DDEVTYPE d3ddevtDeviceType = (D3DDEVTYPE)NULL;
     int iVertexProcessing = NULL;
 
@@ -41,11 +59,9 @@ public:
     int iD3DMultiSampleQuality = NULL;
     int iD3DWindowed = NULL;
     int iD3DEnableAutoDepthStencil = NULL;
-
-    D3DPRESENT_PARAMETERS* p_d3dpstparamD3DPresentParameters = nullptr;
-    IDirect3DDevice9* p_id3d9devD3D9Device = nullptr;
 #endif
 
+#ifdef _WIN32
 private:
     void GetCaptures();
     void CheckVertexProcessing();
@@ -55,14 +71,26 @@ public:
 
 public:
     void MakeD3DPstParams();
+    inline void MakeD3DPstParams(D3DPRESENT_PARAMETERS d3dpstparamD3DPresentParameters);
+    void Reset(bool bAutoMakePP = true);
+    void Reset(D3DPRESENT_PARAMETERS d3dpstparamD3DPresentParameters);
+#endif
 
 public:
 #ifdef _WIN32
     const IDirect3D9* CreateD3D9();
     const IDirect3DDevice9* CreateD3D9Device();
 
-    int Create(int iWidth, int iHeight, HWND hwndWindow);
-
+    int Create(int iWidth, int iHeight, bool bFullscreen, HWND hwndWindow);
     void Release();
+
+    inline IDirect3DDevice9** GetD3D9DevicePtrPtr() { return &p_id3d9devD3D9Device; }
+    inline D3DPRESENT_PARAMETERS GetCurrentD3DPstParams() { return *p_d3dpstparamD3DPresentParameters; }
+#endif
+
+public:
+#ifdef _WIN32
+     HRESULT Clear(const DWORD& Count, const D3DRECT* pRects, const DWORD& Flags, const D3DCOLOR& Color, const float& Z, const DWORD& Stencil);
+     HRESULT Present(const RECT* pSourceRect, CONST RECT* pDestRect, const HWND& hDestWindowOverride, CONST RGNDATA* pDirtyRegion);
 #endif
 };

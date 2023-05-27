@@ -36,7 +36,7 @@ int RunGame()
         return -1;
 
     HWND hwndWindow = engine->GetWindow()->hwndWindowHandle;
-    IDirect3DDevice9* device = engine->GetDevice()->p_id3d9devD3D9Device;
+    CryDevice* device = engine->GetDevice();
 
     ShowWindow(hwndWindow, SW_SHOW);
     UpdateWindow(hwndWindow);
@@ -81,7 +81,7 @@ int RunGame1()
         return -1;
 
     HWND hwndWindow = engine->GetWindow()->hwndWindowHandle;
-    IDirect3DDevice9* device = engine->GetDevice()->p_id3d9devD3D9Device;
+    CryDevice* device = engine->GetDevice();
 
     ShowWindow(hwndWindow, SW_SHOW);
     UpdateWindow(hwndWindow);

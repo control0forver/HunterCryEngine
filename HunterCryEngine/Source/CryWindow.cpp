@@ -2,6 +2,25 @@
 #include <thread>
 
 
+void CryWindow::CreateClass()
+{
+    if (p_wndclsWindowRegClass)
+        delete p_wndclsWindowRegClass;
+
+    p_wndclsWindowRegClass = new WNDCLASS();
+
+    p_wndclsWindowRegClass->cbClsExtra = NULL;
+    p_wndclsWindowRegClass->cbWndExtra = NULL;
+    p_wndclsWindowRegClass->hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH);
+    p_wndclsWindowRegClass->hCursor = LoadCursor(NULL, IDC_ARROW);
+    p_wndclsWindowRegClass->hIcon = LoadIcon(NULL, IDI_APPLICATION);
+    p_wndclsWindowRegClass->hInstance = hinstWindowHinstanceBind;
+    p_wndclsWindowRegClass->lpfnWndProc = wndprocWndProcFuncPtr;
+    p_wndclsWindowRegClass->lpszClassName = c_strWindowClass;
+    p_wndclsWindowRegClass->lpszMenuName = NULL;
+    p_wndclsWindowRegClass->style = CS_HREDRAW | CS_VREDRAW;
+}
+
 CryWindow::CryWindow(const char* c_strWindowClass, const char* c_strWindowTitle, int iWidth, int iHeight,int iStartX, int iStartY)
 {
     this->c_strWindowClass = c_strWindowClass;
@@ -23,17 +42,8 @@ const HWND CryWindow::Create(bool bUseDefaultWndProc, int iWndProcFuncAddr, HINS
 
     hinstWindowHinstanceBind = hinstHinstance;
 
-    p_wndclsWindowRegClass.cbClsExtra = NULL;
-    p_wndclsWindowRegClass.cbWndExtra = NULL;
-    p_wndclsWindowRegClass.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH);
-    p_wndclsWindowRegClass.hCursor = LoadCursor(NULL, IDC_ARROW);
-    p_wndclsWindowRegClass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
-    p_wndclsWindowRegClass.hInstance = hinstHinstance;
-    p_wndclsWindowRegClass.lpfnWndProc = wndprocWndProcFuncPtr;
-    p_wndclsWindowRegClass.lpszClassName = c_strWindowClass;
-    p_wndclsWindowRegClass.lpszMenuName = NULL;
-    p_wndclsWindowRegClass.style = CS_HREDRAW | CS_VREDRAW;
-    if (!RegisterClass(&p_wndclsWindowRegClass))
+    CreateClass();
+    if (!RegisterClass(p_wndclsWindowRegClass))
         return NULL;
 
     hwndWindowHandle = CreateWindow(
@@ -52,5 +62,12 @@ const HWND CryWindow::Create(bool bUseDefaultWndProc, int iWndProcFuncAddr, HINS
 
 void CryWindow::Release()
 {
-    UnregisterClass(c_strWindowClass, p_wndclsWindowRegClass.hInstance);
+    DestroyWindow(hwndWindowHandle);
+    UnregisterClass(c_strWindowClass, p_wndclsWindowRegClass->hInstance);
+
+    if (p_wndclsWindowRegClass)
+        delete p_wndclsWindowRegClass;
+    p_wndclsWindowRegClass = nullptr;
+
+    delete this;
 }

@@ -31,7 +31,7 @@ public:
     HWND hwndWindowHandle = NULL;
     WNDPROC wndprocWndProcFuncPtr = NULL;
 
-    WNDCLASS p_wndclsWindowRegClass;
+    WNDCLASS* p_wndclsWindowRegClass = nullptr;
 
     void (*LoopProcessing)(bool) = [](bool bGetMessage) {
         MSG msg;
@@ -46,6 +46,10 @@ public:
         }
     };
 
+#endif
+
+#ifdef _WIN32
+    void CreateClass();
 #endif
 
 public:

@@ -36,6 +36,24 @@ void CryDevice::MakeD3DPstParams()
     };
 }
 
+inline void CryDevice::MakeD3DPstParams(D3DPRESENT_PARAMETERS d3dpstparamD3DPresentParameters)
+{
+    *p_d3dpstparamD3DPresentParameters = d3dpstparamD3DPresentParameters;
+}
+
+void CryDevice::Reset(bool bAutoMakePP)
+{
+    if (bAutoMakePP)
+        MakeD3DPstParams();
+
+    p_id3d9devD3D9Device->Reset(p_d3dpstparamD3DPresentParameters);
+}
+
+void CryDevice::Reset(D3DPRESENT_PARAMETERS p_d3dpstparamD3DPresentParameters)
+{
+    p_id3d9devD3D9Device->Reset(&p_d3dpstparamD3DPresentParameters);
+}
+
 
 const IDirect3D9* CryDevice::CreateD3D9()
 {
@@ -71,7 +89,7 @@ const IDirect3DDevice9* CryDevice::CreateD3D9Device()
     return p_id3d9devD3D9Device;
 }
 
-int CryDevice::Create(int iWidth, int iHeight, HWND hwndWindow)
+int CryDevice::Create(int iWidth, int iHeight, bool bFullscreen, HWND hwndWindow)
 {
     if (!CreateD3D9())
         return false;
@@ -81,7 +99,7 @@ int CryDevice::Create(int iWidth, int iHeight, HWND hwndWindow)
     this->iDeviceHeight = iHeight;
     this->hwndD3DWindow = hwndWindow;
     this->iD3DPresentationInterval = D3DPRESENT_INTERVAL_IMMEDIATE;
-    this->iD3DWindowed = true;
+    this->iD3DWindowed = !bFullscreen;
     this->iD3DEnableAutoDepthStencil = true;
     this->d3dfmtD3DBackbufferFormat = D3DFMT_A8R8G8B8;
     this->d3dfmtD3DAutoDepthStencilFormat = D3DFMT_D24S8;
@@ -97,4 +115,18 @@ int CryDevice::Create(int iWidth, int iHeight, HWND hwndWindow)
 void CryDevice::Release()
 {
     delete this;
+}
+
+HRESULT CryDevice::Clear(const DWORD & Count, const D3DRECT * pRects,const DWORD & Flags, const D3DCOLOR & Color, const float& Z, const DWORD & Stencil)
+{
+    if (!bReleased)
+        return p_id3d9devD3D9Device->Clear(Count, pRects, Flags, Color, Z, Stencil);
+    return 0;
+}
+
+HRESULT CryDevice::Present(const RECT * pSourceRect, CONST RECT * pDestRect, const HWND & hDestWindowOverride, CONST RGNDATA * pDirtyRegion)
+{
+    if (!bReleased)
+        return p_id3d9devD3D9Device->Present(pSourceRect, pDestRect, hDestWindowOverride, pDirtyRegion);
+    return 0;
 }
